@@ -2,6 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+import checklist from './routes/checklist.js';
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const app = express();
 app.use(cors());
 
 //GET POST PUT DELETE PATCH
+app.use('/checklist', checklist);
 
 mongoose
   .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
